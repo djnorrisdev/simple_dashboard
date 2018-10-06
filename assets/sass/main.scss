@@ -1,0 +1,306 @@
+@import url( 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700');
+@import "reset";
+@import "variables";
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: $lightGray;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+// body:after { 
+//   content: " "; 
+//   display: block;
+//   clear: both;
+// } 
+#grid-wrapper {
+  display: grid;
+  grid-template-columns: 20% 80%;
+}
+#side-menu {
+  background: $lightPurple;
+  .side-title {
+    color: #ffffff;
+    font-size: 2em;
+    text-align: center;
+    padding-top: 50px;
+  }
+  nav {
+    padding-top: 50px;
+    a {
+      display: block;
+      color: $backgroundGray;
+      padding: 15px 30px;
+      font-weight: 300;
+      .fas, .far {
+        color: $neonGreen;
+        margin-right: 0.8em;
+        font-size: 1.4em;
+        display: inline-block;
+        width: 30px;
+      }
+      &.active {
+        background: $darkPurple;
+        border-left: 5px solid $neonGreen;
+        padding: 15px 30px 15px 25px;
+      } 
+    }
+  }
+}
+
+#main-container {
+  background: $backgroundGray;
+  #top-search {
+    background: $pureWhite;
+    .search-container {
+      @include flex;
+      justify-content: space-between;
+      height: 80px;
+      margin: 0 20px;
+      .search-box {
+        @include flex;
+        align-items: center;
+        width: 50%;
+        font-size: 20px;
+        color: $grayText;
+        .fas {
+          margin-right: 20px;
+        }
+        input {
+          border: none;
+          width: 90%;
+          height: 35px;
+          font-size: 1em;
+          &::placeholder {
+            color: $grayText;
+          }
+        }
+      }
+      .icon-box {
+        @include flex;
+        align-items: center;
+        .icons {
+          @include flex;
+          justify-content: center;
+          align-items: center;
+          color: $darkText;
+          li {
+            display: inline-block;
+            margin: 0 15px 0 0;
+            .small-avatar {
+              width: 30px;
+              height: 30px;
+              img {
+                max-width: 100%;
+                max-height: 100%;
+                border-radius: 50%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  #card-section {
+    padding: 50px 70px;
+    .main-title {
+      .title {
+        font-size: 28px;
+        font-weight: 500;
+        text-transform: capitalize;
+        color: $textPurple;
+        letter-spacing: 1.2px;
+        margin-bottom: 15px;
+      }
+      .sub-title {
+        color: $darkText;
+      }
+    }
+  }
+  .card-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 15px;
+    justify-content: space-evenly;
+    margin: 50px 0; 
+    .left-container {
+      @include card-styling;
+      .large-avatar {
+        display: flex;
+        justify-content: center;
+        img {
+          width: 130px;
+          height: 130px;
+          border-radius: 50%;
+        }
+      }
+      .user-name {
+        text-align: center;
+        font-size: 1.1em;
+        font-weight: 500;
+        color: $textPurple;
+        margin: 20px 0;
+      }
+      .user-title {
+        text-align: center;
+        font-size: 0.9em;
+        margin-bottom: 20px;
+      }
+      .education-area {
+        display: grid;
+        justify-content: center;
+        grid-gap: 20px;
+        font-size: 0.9em;
+        .education {
+          grid-column: 1 / 2;
+          grid-row: 1 / 2;
+        }
+        .work {
+          grid-column: 1 / 2;
+          grid-row: 2 / 3;
+        }
+        .ed-desc {
+          grid-column: 2 / 3;
+          grid-row: 1 / 2;
+          font-weight: 500;
+        }
+        .work-desc {
+          grid-column: 2 / 3;
+          grid-row: 2 / 3;
+          font-weight: 500;
+        }
+      }
+    }
+    .middle-container {
+      @include card-styling;
+      .interview-schedule {
+        text-align: center;
+      }
+      .interview-date {
+        text-align: center;
+        font-size: 1.2em;
+        font-weight: 500;
+        margin: 20px 0 55px 0;
+
+      }
+      .first-box, .second-box {
+        display: flex;
+        margin: 0 0 30px 40px;
+        .logo-box {
+          @include logo;
+        }
+        .int-desc {
+          display: inline-block;
+          font-size: 0.9em;
+          line-height: 1.5;
+          span {
+            font-weight: 500;
+          }
+        }
+      }
+    }
+    .right-container {
+      @include card-styling;
+      .status-title {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      .graph {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
+        img {
+          width: 225px;
+          height: 200px;
+        }
+      }
+      .legend-container {
+        display: flex;
+        justify-content: center;
+        font-size: 0.9em;
+        .left-legend {
+          display: inline-flex;
+          margin-right: 5px;
+          .fas {
+            @include legend-icon;
+            color: $blue;
+          }
+          p {
+            span {
+              font-weight: 500;
+            }
+          }
+        }
+        .middle-legend {
+          display: inline-flex;
+          margin-right: 3px;
+          .fas {
+            @include legend-icon;
+            color: $chartGreen;
+          }
+          p {
+            span {
+              font-weight: 500;
+            }
+          }
+        }
+        .right-legend {
+          display: inline-flex;
+          .fas {
+            @include legend-icon;
+            color: $chartRed;
+          }
+          p {
+            span {
+              font-weight: 500;
+            }
+          }
+        }
+      }
+    }
+  }
+  #application-section {
+    padding: 50px 70px;
+    font-size: 0.9em;
+    color: $darkText;
+    .application-header {
+      @include app-list;
+      @include shadow;
+      text-transform: uppercase;
+      font-weight: 500;
+      background: $headerGray;
+      border-radius: 5px 5px 0 0;
+      :first-child {
+        margin-left: 20px;
+      }
+    }
+    .application-items {
+      @include shadow;
+      font-size: 0.9em;
+      background: $pureWhite;
+      border-radius: 0 0 5px 5px;
+      .e-com {
+        @include app-list;
+        .logo-box {
+          @include logo;
+          margin: 0;
+          img {
+            vertical-align: middle;
+            margin: 0 15px 0 20px;
+            width: 30px;
+            height: 30px;
+          }
+          .desc {
+            vertical-align: middle;
+          }
+        }
+      }
+      :last-child {
+        border: none;
+      }
+    }
+  }
+}
